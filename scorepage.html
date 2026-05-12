@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panel Scoring System</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f7fb;
+    padding:30px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+
+h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+input, select{
+    width:100%;
+    padding:8px;
+    margin:6px 0;
+}
+
+button{
+    padding:10px 15px;
+    margin-top:10px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.btn{
+    background:#2563eb;
+    color:white;
+}
+
+.btn:hover{
+    background:#1e40af;
+}
+
+#scoreForm{
+    display:none;
+}
+
+#projectBox{
+    margin-top:10px;
+    font-weight:bold;
+    color:#1e3a8a;
+}
+
+.spreadsheet-link{
+    margin-top:20px;
+    padding:15px;
+    background:#f1f5f9;
+    border-radius:10px;
+    text-align:center;
+}
+
+.spreadsheet-link a{
+    color:#2563eb;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+.spreadsheet-link a:hover{
+    text-decoration:underline;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Panel Scoring System</h2>
+
+    <!-- LOGIN -->
+    <div id="loginBox">
+        <p>Enter Password to Access Scoring</p>
+        <input type="password" id="password" placeholder="Password">
+        <button class="btn" onclick="login()">Enter</button>
+        <p id="error" style="color:red;"></p>
+    </div>
+
+    <!-- SCORING AREA -->
+    <div id="scoreForm">
+
+
+
+
+        <hr>
+
+        <!-- SPREADSHEET LINK -->
+        <div class="spreadsheet-link">
+            <h3>Score Submission Sheet</h3>
+            <p>Use the spreadsheet below to encode and manage scores:</p>
+            <a href="https://docs.google.com/spreadsheets/d/1emXn42nIzVlgpt9-6eHXdj1Ek34fnPW8/edit?usp=sharing&ouid=106210228619726178440&rtpof=true&sd=true" target="_blank">
+                Open Scoring Spreadsheet
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+const PASSWORD = "influencingthefuture";
+
+function login(){
+    let pass = document.getElementById("password").value;
+
+    if(pass === PASSWORD){
+        document.getElementById("loginBox").style.display = "none";
+        document.getElementById("scoreForm").style.display = "block";
+    } else {
+        document.getElementById("error").innerText = "Wrong password!";
+    }
+}
+
+/* TEAM PROJECTS */
+const projects = {
+    1: "Low-Cost PCB Continuity Tester",
+    2: "Smart Soil Moisture Sensor",
+    3: "Flood Level Warning System",
+    4: "BantayBaha Flood Monitoring System",
+    5: "Pin Code Security Door System",
+    6: "Digital Toll Gate Control System",
+    7: "Geo-lert Soil Displacement Detection",
+    8: "Smart Medicine Reminder System",
+    9: "Aquaguard Pro Water Tank System",
+    10: "Automated Rain Sensing System",
+    11: "Passcode Door Lock System with RFID",
+    12: "Automated Desk Plant Watering Circuit"
+};
+
+function showProject(){
+    let team = document.getElementById("teamSelect").value;
+
+    document.getElementById("projectBox").innerText =
+        "Project: " + (projects[team] || "---");
+}
+
+</script>
+
+</body>
+</html>

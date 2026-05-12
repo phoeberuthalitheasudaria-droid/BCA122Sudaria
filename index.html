@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>BCA122 Digital Techniques Project Presentation</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins', sans-serif;
+    background-image: url("photos/8b9aa08f-3be4-4e99-a011-5405a101a956.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+header{
+    background:linear-gradient(135deg,#0f172a,#1e3a8a);
+    color:white;
+    padding:40px 20px;
+    text-align:center;
+    box-shadow:0 4px 12px rgba(0,0,0,0.2);
+}
+
+header h1{
+    font-size:2.7rem;
+    margin-bottom:10px;
+}
+
+header p{
+    font-size:1.1rem;
+    opacity:0.9;
+}
+
+.dashboard{
+    max-width:1300px;
+    margin:auto;
+    padding:25px;
+}
+
+.announcement{    background:#fff;    padding:20px;    border-radius:12px;    border:1px solid #e5e7eb;    margin-bottom:20px;}
+.announcement h2{    font-size:1.3rem;    margin-bottom:8px;    color:#111827;}
+.announcement p{    color:#6b7280;    font-size:0.95rem;}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    margin-bottom:30px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card h3{
+    color:#2563eb;
+    margin-bottom:10px;
+}
+
+.tabs{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+.tab-btn{
+    padding:12px 20px;
+    border:none;
+    background:#dbeafe;
+    color:#1e3a8a;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.tab-btn:hover,
+.tab-btn.active{
+    background:#2563eb;
+    color:white;
+}
+
+.tab-content{
+    display:none;
+    background:white;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+}
+
+.tab-content.active{
+    display:block;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+}
+
+table th{
+    background:#2563eb;
+    color:white;
+    padding:14px;
+    text-align:left;
+}
+
+table td{
+    padding:12px;
+    border-bottom:1px solid #ddd;
+}
+
+.award-box{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    margin-top:20px;
+}
+
+.award{
+    background:linear-gradient(135deg,#eff6ff,#dbeafe);
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
+
+.award h3{
+    color:#1d4ed8;
+    margin-bottom:10px;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+    background:#0f172a;
+    color:white;
+}
+
+@media(max-width:768px){
+    header h1{
+        font-size:2rem;
+    }
+}
+
+.event-card{
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(179, 141, 141, 0.3);
+    border:1px solid #e5e7eb;
+    border-radius:16px;
+    padding:30px;
+    max-width:1500px;
+    margin:auto;
+}
+.event-card1{
+    background:linear-gradient(135deg,#0f172a,#1e3a8a);
+    color:white;
+    border:1px solid #e5e7eb;
+    border-radius:16px;
+    padding:30px;
+    max-width:1500px;
+    margin:auto;
+}
+
+.event-card h2{
+    font-size:1.8rem;
+    color:#eaebee;
+    margin-bottom:5px;
+}
+
+.subtitle{
+    color:#6b7280;
+    margin-bottom:25px;
+    font-size:0.95rem;
+}
+
+.event-details{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:15px;
+}
+
+.event-card p{
+    font-size:0.95rem;
+    color:#c9cdd4;
+    margin:0;
+}
+.detail{
+    background:#f9fafb;
+    border-radius:12px;
+    padding:18px;
+    text-align:center;
+}
+
+.detail span{
+    font-size:1.5rem;
+    display:block;
+    margin-bottom:8px;
+}
+
+.detail p{
+    color:#374151;
+    font-size:0.95rem;
+}
+.guest-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:18px;
+    margin-top:20px;
+    width:100%;
+}
+
+.guest-card{
+    background:linear-gradient(135deg,#0f172a,#1e3a8a);
+    color:white;
+    border:1px solid #e5e7eb;
+    border-radius:14px;
+    padding:16px;
+    text-align:center;
+}
+
+.guest-card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:10px;
+    margin-bottom:10px;
+}
+
+.guest-card h3{
+    font-size:1.1rem;
+    margin:6px 0;
+    color:#dde4f1;
+}
+
+.spec{
+    font-size:0.9rem;
+    color:#2563eb;
+    margin-bottom:8px;
+}
+
+.bio{
+    font-size:0.85rem;
+    color:#6b7280;
+}
+#scoreForm table{
+    width:100%;
+    margin-top:10px;
+}
+
+#scoreForm input{
+    width:80px;
+    padding:5px;
+}
+
+#loginBox{
+    text-align:center;
+    padding:20px;
+}
+.go-scoring{
+    background: linear-gradient(135deg, #2563eb, #1e3a8a);
+    color: white;
+    padding: 20px;
+    border-radius: 14px;
+    cursor: pointer;
+    text-align: center;
+    width: 250px;
+    transition: 0.3s;
+    margin-top: 20px;
+}
+
+.go-scoring:hover{
+    transform: translateY(-5px);
+    opacity: 0.9;
+}
+
+.go-scoring h3{
+    margin-bottom: 5px;
+}
+
+.go-scoring p{
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>BCA122 - Digital Techniques</h1>
+    <p>Supervised by Asst. Prof. Phoebe Ruth Alithea B. Sudaria, MSc.</p>
+</header>
+
+<section class="dashboard">
+
+<div class="event-card">
+
+    <h3>Important Details</h3>
+
+
+
+<div class="event-card1">
+    <p>
+       •Date: May 16, 2026 <br> •Time: 9:00 AM – 5:00 PM <br> •Venue: ICT 3C
+    </p>
+</div>
+<br>
+<center>
+<h2>Guest Panelist</h2>
+<p class="subtitle">Meet the invited experts for the BCA122 Project Presentation</p>
+</center>
+<div class="guest-container">
+
+    <div class="guest-card">
+        <img src="PHOTOS/Maam Kolin.jpg" alt="Guest 1">
+        <h3>Ms. Collien Princess Pepito</h3>
+        <p class="spec">Internet of Things, Robotics </p>
+        <p class="bio">Expert in smart systems and embedded device integration with over 10 years of research experience.</p>
+    </div>
+
+    <div class="guest-card">
+        <img src="PHOTOS/Sir Jofel.jpg" alt="Guest 2">
+        <h3>Mr. Jofel Batutay</h3>
+        <p class="spec">Internet of Things, Network Systems and Robotics</p>
+        <p class="bio">Focused on scalable software design and agile development methodologies in academic and industry settings.</p>
+    </div>
+
+    <div class="guest-card">
+        <img src="PHOTOS/Sir nilo.jpg" alt="Guest 3">
+        <h3>Mr. Neil Tubio</h3>
+        <p class="spec">Internet of Things, Robotics and Embedded Systems</p>
+        <p class="bio">Researcher in machine learning and AI applications for real-world problem solving and automation.</p>
+    </div>
+
+    <div class="guest-card">
+        <img src="PHOTOS/Sir Sam.jpg" alt="Guest 4">
+        <h3>Mr. Sammford Cabaluna</h3>
+        <p class="spec">Embedded Systems</p>
+        <p class="bio">Specialist in hardware-software integration and microcontroller-based system design for IoT solutions.</p>
+    </div>
+
+</div>
+
+
+</div>
+<center><div class="go-scoring">
+    <h3>Panel Scoring System</h3>
+    <a href="scorepage.html"> Go to Scoring Page</a>
+</div></center>
+<br>
+    <div class="tabs">
+        <button class="tab-btn active" onclick="openTab('rubrics')">Rubrics</button>
+        <button class="tab-btn" onclick="openTab('matrix')">Presentation Matrix</button>
+        <button class="tab-btn" onclick="openTab('schedule')">Schedule Matrix</button>
+        <button class="tab-btn" onclick="openTab('awards')">Awards</button>
+        <button class="tab-btn" onclick="openTab('loginBox')">scoreForm</button>
+    </div>
+
+    <!-- RUBRICS -->
+    <div id="rubrics" class="tab-content active">
+        <h2>Presentation Rubrics</h2>
+
+        <table>
+            <tr>
+                <th>Criteria</th>
+                <th>Weight</th>
+            </tr>
+
+            <tr>
+                <td>Project Design </td>
+                <td>25%</td>
+            </tr>
+
+            <tr>
+                <td>Research Organization & Structure</td>
+                <td>20%</td>
+            </tr>
+
+            <tr>
+                <td>Delivery & Communication</td>
+                <td>20%</td>
+            </tr>
+
+            <tr>
+                <td>Methodology Correctness</td>
+                <td>20%</td>
+            </tr>
+
+            <tr>
+                <td>Technical Execution & Functionality</td>
+                <td>15%</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- PRESENTATION MATRIX -->
+    <div id="matrix" class="tab-content">
+        <h2>Presentation Matrix Links</h2>
+
+        <table>
+            <tr>
+                <th>Project Title</th>
+                <th>Team Members</th>
+                <th>Project Summary</th>
+            </tr>
+
+            <tr>
+                <td>Aquaguard Pro: Digital Logic -Based Smart Water Tank Protection System</td>
+                <td>Gote, Jannah; Sani, Rihanna Elisse C.; Valle, Jrel Ajina; Oblenda, Jane Faith Marie</td>
+                <td><a href="https://drive.google.com/file/d/1Ebha_nZqgjUco0rsRy4cAOdM0JxXPrE1/view?usp=sharing">🔗</a></td>
+            </tr>
+
+            <tr>
+                <td>Passcode Door Lock System with RFID</td>
+                <td>Blessy A. Gaylawan; Rica Karen S. Polinar; Wilfredo B. Ferenal</td>
+                <td><a href="https://drive.google.com/file/d/1HLeOhNVjxVHj436CYIG01i2YH9ydIZdK/view?usp=drive_link">🔗</a></td>
+            </tr>
+
+            <tr>
+                <td>Pin Code Security Door System</td>
+                <td>Estudillo, Cyaon Luz; De Castro; Precious Christel; Domingo, Yohann; Capangpangan, Sam Ezra</td>
+                <td><a href="https://drive.google.com/file/d/1HLeOhNVjxVHj436CYIG01i2YH9ydIZdK/view?usp=sharing">🔗</a></td>
+            </tr>
+
+            <tr>
+                <td>Geo-lert: automated soil displacement detection system</td>
+                <td>Ambal, Jiandale; Dimakuta, Jonaisah; Odvina, Jane Abegail; Sumbillo,Zara Mae; Ahencio, Jenevieve</td>
+                <td><a href="https://drive.google.com/file/d/1TNuOrVTds1fz9THUyZ8wwKkitxQ5qwdM/view?usp=sharing">🔗</a></td>
+            </tr>
+
+            <tr>
+                <td>"BantayBaha" - A Flood Monitoring with Automatic Dam Gate Control System</td>
+                <td>Encabo, Noril Agustin O.; Africano, Xyril; Sarip, Marjah; Gesulga, Jed</td>
+                <td><a href="https://drive.google.com/file/d/1LOXngTIvLeNg9o01bGzqs7RH_UhdFvrC/view?usp=drive_link">🔗</a></td>
+            </tr>
+
+            <tr>
+                <td>Smart Medicine Reminder with Automated Pill Dispenser</td>
+                <td>Gian Marco Bigornia; Avel Deniel Jayme; Leemar Totesora; Nasrollah Lacsaman</td>
+                <td><a href="https://drive.google.com/file/d/19pTcz4S4An61jtbYx5l6ognp6GVGV9kA/view?usp=drive_link">🔗</a></td>
+            </tr>
+
+            <tr>
+                <td>Smart Soil Moisture Sensor</td>
+                <td>Lumbra, John Andrew Benjamin E.; Salazar, Charles; Labrador, Justine; </td>
+                <td><a href="https://drive.google.com/file/d/132BsPe8p5sxfygIbBGJV-zUf1Bcl2w2M/view?usp=drive_link">🔗</a></td>
+            </tr>
+
+            <tr>
+                <td>Low-Cost PCB Continuity Tester</td>
+                <td>Omandam, Lomosad, Clavano, Unabia</td>
+                <td><a href="https://drive.google.com/file/d/154dfXVyf8uuUysA2Yc1uqpSeK8mREfzq/view?usp=drive_link">🔗</a></td>
+            </tr>
+
+            <tr>
+                <td>Digital Toll Gate Control System Using Logic Circuits</td>
+                <td>Sarip, Jomairy G.;  Sumpingan, Amin P.</td>
+                <td><a href="https://drive.google.com/file/d/1qRrJZ-x94cdxTCd-wtMUoVVwC-5m-r9_/view?usp=drive_link">🔗</a></td>
+            </tr>
+
+            <tr>
+                <td>Flood Level Warning System</td>
+                <td>Escarpe, Bon Marvrix J.; Gutang, Lear Ivan; Calderon, Ryan; Magalso, Clark Ryan; Gonzales, Christian</td>
+                <td><a href="https://drive.google.com/file/d/1K86NtjZBjO6EyBbwCggf8s3aWQzOYjoA/view?usp=sharing">🔗</a></td>
+            </tr>
+
+            <tr>
+                <td> Automated Desk Plant Watering Circuit</td>
+                <td>Salvador, Mark; Mapandi, Zishan; Merilles, Jayve; Tajoda, Stephen;Bicada, Client</td>
+                <td><a href="https://drive.google.com/file/d/1qzGvp2FdorYZXR_bZobtZoIxa8S_AoH0/view?usp=drive_link">🔗</a></td>
+            </tr>
+
+             <tr>
+                <td> Development of an automated Rain Sensing using Digital Logic Gates</td>
+                <td>Socorro, Regie; Capuyan, Aldrich;Malanog, Kierl Shien; Carim, Abdul; Casarungan, Emir Mohammad</td>
+                <td><a href="#">🔗</a></td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- SCHEDULE -->
+    <div id="schedule" class="tab-content">
+        <h2>Schedule Matrix</h2>
+<a href="https://drive.google.com/file/d/1xE0Y-S1zGnB_4syD3crQeWra8zVjQrPI/view?usp=sharing" target="_blank">
+    Watch Project Presentaion Sequence
+</a>
+        <table>
+            <tr>
+                <th>Time</th>
+                <th>Team</th>
+                <th>Project</th>
+            </tr>
+
+            <tr>
+                <td>9:00 AM - 9:30 AM</td>
+                <td>Team 1</td>
+                <td>Low-Cost PCB Continuity Tester</td>
+            </tr>
+
+            <tr>
+                <td>9:30 AM - 10:00 AM</td>
+                <td>Team 2</td>
+                <td>Smart Soil Moisture Sensor</td>
+            </tr>
+
+            <tr>
+                <td>10:00 AM - 10:30 AM</td>
+                <td>Team 3</td>
+                <td>Flood Level Warning System</td>
+            </tr>
+
+            <tr>
+                <td>10:30 AM - 11:00 AM</td>
+                <td>Team 4</td>
+                <td>"BantayBaha" - A Flood Monitoring with Automatic Dam Gate Control System</td>
+            </tr>
+
+            <tr>
+                <td>11:00 AM - 11:30 AM</td>
+                <td>Team 5</td>
+                <td>Pin Code Security Door System</td>
+            </tr>
+
+            <tr>
+                <td>11:30 AM - 12:00 NN</td>
+                <td>Team 6</td>
+                <td>Digital Toll Gate Control System Using Logic Circuits</td>
+            </tr>
+
+            <tr>
+                <td>1:00 PM - 1:30 PM</td>
+                <td>Team 7</td>
+                <td>Geo-lert: automated soil displacement detection system</td>
+            </tr>
+
+            <tr>
+                <td>1:30 PM - 2:00 PM</td>
+                <td>Team 8</td>
+                <td>Smart Medicine Reminder with Automated Pill Dispenser</td>
+            </tr>
+
+            <tr>
+                <td>2:00 PM - 2:30 PM</td>
+                <td>Team 9</td>
+                <td>Aquaguard Pro: Digital Logic -Based Smart Water Tank Protection System</td>
+            </tr>
+
+            <tr>
+                <td>2:30 PM - 3:00 PM</td>
+                <td>Team 10</td>
+                <td>Development of an automated Rain Sensing using Digital Logic Gates</td>
+            </tr>
+
+            <tr>
+                <td>3:00 PM - 3:30 PM</td>
+                <td>Team 11</td>
+                <td>Passcode Door Lock System With RFID</td>
+            </tr>
+
+            <tr>
+                <td>3:30 AM - 4:00 PM</td>
+                <td>Team 12</td>
+                <td> Automated Desk Plant Watering Circuit</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- AWARDS -->
+    <div id="awards" class="tab-content">
+        <h2>Project Awards</h2>
+
+        <div class="award-box">
+
+            <div class="award">
+                <h3>🏅 Most Innovative / Creative Design Award</h3>
+                <p>Recognizes the project with the most original and creative implementation.</p>
+            </div>
+
+            <div class="award">
+                <h3>⚙️ Best Technical Execution</h3>
+                <p>Awarded to the team with the most technically sound and functional project.</p>
+            </div>
+
+            <div class="award">
+                <h3>🎤 Best Presenter Award</h3>
+                <p>Given to the presenter with exceptional communication and delivery skills.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="scoring" class="tab-content">
+
+    <h2>Panel Scoring System</h2>
+
+    <!-- Password Gate -->
+    <div id="loginBox">
+        <p>Enter Password to Access Scoring</p>
+        <input type="password" id="passwordInput" placeholder="Enter password">
+        <button onclick="checkPassword()">Enter</button>
+        <p id="error" style="color:red;"></p>
+    </div>
+
+    <!-- Scoring Form -->
+    <div id="scoreForm" style="display:none;">
+
+        <table>
+            <tr>
+                <th>Criteria</th>
+                <th>Score (0–100)</th>
+            </tr>
+
+            <tr>
+                <td>Project Design (25%)</td>
+                <td><input type="number" id="design"></td>
+            </tr>
+
+            <tr>
+                <td>Research Organization (20%)</td>
+                <td><input type="number" id="research"></td>
+            </tr>
+
+            <tr>
+                <td>Delivery & Communication (20%)</td>
+                <td><input type="number" id="delivery"></td>
+            </tr>
+
+            <tr>
+                <td>Methodology Correctness (20%)</td>
+                <td><input type="number" id="method"></td>
+            </tr>
+
+            <tr>
+                <td>Technical Execution (15%)</td>
+                <td><input type="number" id="tech"></td>
+            </tr>
+        </table>
+
+        <br>
+
+        <button onclick="calculateScore()">Calculate Score</button>
+        <button onclick="saveScore()">Save Score</button>
+
+        <h3 id="result"></h3>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<footer>
+    BCA122 Digital Techniques Project Presentation © 2026
+</footer>
+
+<script>
+function openTab(tabId){
+
+    let contents = document.querySelectorAll('.tab-content');
+    let buttons = document.querySelectorAll('.tab-btn');
+
+    contents.forEach(content => {
+        content.classList.remove('active');
+    });
+
+    buttons.forEach(button => {
+        button.classList.remove('active');
+    });
+
+    document.getElementById(tabId).classList.add('active');
+
+    event.currentTarget.classList.add('active');
+}
+const PASSWORD = "bca122"; // change this password
+
+function checkPassword(){
+    let input = document.getElementById("passwordInput").value;
+
+    if(input === PASSWORD){
+        document.getElementById("scoreForm").style.display = "block";
+        document.getElementById("loginBox").style.display = "none";
+    } else {
+        document.getElementById("error").innerText = "Incorrect password!";
+    }
+}
+
+function calculateScore(){
+
+    let design = document.getElementById("design").value * 0.25;
+    let research = document.getElementById("research").value * 0.20;
+    let delivery = document.getElementById("delivery").value * 0.20;
+    let method = document.getElementById("method").value * 0.20;
+    let tech = document.getElementById("tech").value * 0.15;
+
+    let total = design + research + delivery + method + tech;
+
+    document.getElementById("result").innerText = 
+        "Total Score: " + total.toFixed(2);
+}
+
+function saveScore(){
+
+    let scoreData = {
+        design: document.getElementById("design").value,
+        research: document.getElementById("research").value,
+        delivery: document.getElementById("delivery").value,
+        method: document.getElementById("method").value,
+        tech: document.getElementById("tech").value
+    };
+
+    localStorage.setItem("panelScore", JSON.stringify(scoreData));
+
+    alert("Score Saved Successfully!");
+}
+</script>
+
+</body>
+</html>
